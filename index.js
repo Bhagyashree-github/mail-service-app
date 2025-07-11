@@ -3,6 +3,7 @@ dotenv.config();
 import express from 'express';
 import fs from 'fs';
 import router from './router/router.js';
+import mailRouter from './router/mailroutes.js'
 
 const app = express();
 
@@ -16,7 +17,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.use('/signup',router );
+app.use('/sendmail',mailRouter)
+
+app.use('/user',router );
 
 
 
